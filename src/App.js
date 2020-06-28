@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import Parent from './Parent';
+import ValueContext from './ValueContext';
 
 function App() {
 
-  let [number, setNumber] = useState(45);
+  let value = 81;
 
   return (
-    <div className="App">
-      Hello World
-      <Parent num={number} />
-      <button onClick={() => { setNumber(++number) }}>Update Value</button>
-    </div >
+
+    <ValueContext.Provider value={value}>
+      <div className="App">
+        Hello World
+      <Parent />
+      </div >
+    </ValueContext.Provider>
+
   )
 }
 
